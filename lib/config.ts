@@ -28,59 +28,26 @@ export const PLACEHOLDER_INPUT = "Posez votre question à AZAR...";
 export const GREETING = "Bonjour, c'est AZAR ! Comment puis-je vous aider aujourd'hui au Taj Medina ?";
 
 // ==========================================================
-// DÉBUT DE VOTRE THÈME PERSONNALISÉ (Structure Corrigée)
+// THÈME CORRIGÉ (Structure Valide)
 // ==========================================================
 
-export const getThemeConfig = (theme: ColorScheme): ThemeOption => {
-  // Définition des couleurs de la marque Taj Medina
-  const colors = {
-    background: "#0e2a2a",   // Vert très foncé (fond)
-    text: "#FFFFFF",         // Texte blanc
-    primary: "#AA8453",     // Or / Beige (votre "bleu")
-    botMessage: "#1a3d3d", // Vert plus clair (bulle du bot)
-  };
-
-  return {
-    radius: "round",
-
-    // --- C'est ici que nous définissons les couleurs ---
-    color: {
-      // Les couleurs de "base" (juste pour que ça compile)
-      grayscale: {
-        hue: 30, // Teinte dorée/beige
-        tint: 6, // Valeur valide (entre 0-9)
-        shade: 0, // Valeur valide (entre 0-9)
-      },
-      
-      // La couleur d'accent (le "bleu" d'origine)
-      accent: {
-        primary: colors.primary, // Votre couleur OR
-        level: 1,
-      },
-
-      // -- Variables CSS personnalisées pour forcer le thème --
-      // C'est cette partie qui compte vraiment.
-      custom: {
-        // Fond général du chat
-        "--widget-background-color": colors.background,
-        "--header-background-color": colors.background,
-        "--composer-background-color": colors.botMessage,
-
-        // Texte
-        "--widget-text-color": colors.text,
-        "--header-text-color": colors.text,
-        "--composer-text-color": colors.text,
-
-        // Bulles de Message
-        "--widget-user-message-bg": colors.primary,      // Bulle utilisateur OR
-        "--widget-user-message-text": colors.background, // Texte VERT FONCÉ
-        "--widget-bot-message-bg": colors.botMessage,    // Bulle bot VERT CLAIR
-        "--widget-bot-message-text": colors.text,        // Texte BLANC
-      },
+export const getThemeConfig = (theme: ColorScheme): ThemeOption => ({
+  color: {
+    // Teinte des fonds et bulles du bot (Basé sur votre Vert Émeraude)
+    grayscale: {
+      hue: 180, // 180 est la teinte HSL pour le Vert Émeraude (#0e2a2a)
+      tint: 6,  // Chiffre valide (0-9)
+      shade: 1, // Chiffre valide (0-9)
     },
-  };
-};
-
+    
+    // Couleur d'accent (Bouton Envoyer et Bulle Utilisateur)
+    accent: {
+      primary: "#AA8453", // Votre couleur OR
+      level: 1,
+    },
+  },
+  radius: "round",
+});
 // ==========================================================
-// FIN DE VOTRE THÈME PERSONNALISÉ
+// FIN DU CODE
 // ==========================================================
