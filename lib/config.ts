@@ -9,17 +9,17 @@ export const STARTER_PROMPTS: StartScreenPrompt[] = [
   {
     label: "Quels sont vos meilleurs plats ?",
     prompt: "Quels sont vos meilleurs plats ?",
-    icon: "sparkle", // <-- Corrigé ici (j'ai enlevé le 's')
+    icon: "sparkle", // Corrigé
   },
   {
     label: "Je veux faire une réservation",
     prompt: "Je veux faire une réservation",
-    icon: "calendar-days",
+    icon: "calendar", // Corrigé (j'ai enlevé le "s" de "days")
   },
   {
     label: "Où êtes-vous situés ?",
     prompt: "Où êtes-vous situés ?",
-    icon: "map-pin",
+    icon: "map-pin", // Celui-ci était correct
   },
 ];
 
