@@ -40,51 +40,45 @@ export const getThemeConfig = (theme: ColorScheme): ThemeOption => {
     botMessage: "#1a3d3d", // Vert plus clair (bulle du bot)
   };
 
+  // Logique pour le mode sombre/clair (on utilise le même thème pour les deux)
+  const isDark = true; // Forcer le thème sombre pour correspondre à vos couleurs
+
   return {
-    // --- PROPRIÉTÉS DE PREMIER NIVEAU ---
     radius: "round",
 
-    // --- COULEUR D'ACCENT (BOUTON ENVOYER, ETC.) ---
+    // --- C'est ici que nous définissons les couleurs ---
     color: {
+      // Les couleurs de "base" (gris)
+      grayscale: {
+        hue: 30, // Teinte dorée/beige
+        tint: isDark ? 6 : -4,
+        shade: isDark ? -1 : -4,
+      },
+      
+      // La couleur d'accent (le "bleu" d'origine)
       accent: {
-        primary: colors.primary,
+        primary: colors.primary, // Votre couleur OR
         level: 1,
       },
-    },
-    
-    // --- FOND GÉNÉRAL DU CHAT ---
-    background: {
-      primary: colors.background,
-    },
 
-    // --- TEXTE GÉNÉRAL ---
-    text: {
-      primary: colors.text,
-    },
+      // -- Variables CSS personnalisées pour forcer le thème --
+      // Ces variables écraseront les styles par défaut
+      custom: {
+        // Fond général du chat
+        "--widget-background-color": colors.background,
+        "--header-background-color": colors.background,
+        "--composer-background-color": colors.botMessage,
 
-    // --- BARRE DE TITRE ---
-    header: {
-      background: colors.background,
-      text: colors.text,
-    },
+        // Texte
+        "--widget-text-color": colors.text,
+        "--header-text-color": colors.text,
+        "--composer-text-color": colors.text,
 
-    // --- CHAMP DE SAISIE ---
-    composer: {
-      background: colors.botMessage,
-      text: colors.text,
-    },
-
-    // --- BULLES DE MESSAGE ---
-    message: {
-      // Bulle de l'UTILISATEUR (la bulle "or")
-      user: {
-        background: colors.primary,
-        text: colors.background, // Texte vert foncé sur bulle or
-      },
-      // Bulle du BOT (la bulle "vert foncé")
-      bot: {
-        background: colors.botMessage,
-        text: colors.text,
+        // Bulles de Message
+        "--widget-user-message-bg": colors.primary,      // Bulle utilisateur OR
+        "--widget-user-message-text": colors.background, // Texte VERT FONCÉ
+        "--widget-bot-message-bg": colors.botMessage,    // Bulle bot VERT CLAIR
+        "--widget-bot-message-text": colors.text,        // Texte BLANC
       },
     },
   };
