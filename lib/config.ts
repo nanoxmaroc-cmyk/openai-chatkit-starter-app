@@ -40,19 +40,16 @@ export const getThemeConfig = (theme: ColorScheme): ThemeOption => {
     botMessage: "#1a3d3d", // Vert plus clair (bulle du bot)
   };
 
-  // Logique pour le mode sombre/clair (on utilise le même thème pour les deux)
-  const isDark = true; // Forcer le thème sombre pour correspondre à vos couleurs
-
   return {
     radius: "round",
 
     // --- C'est ici que nous définissons les couleurs ---
     color: {
-      // Les couleurs de "base" (gris)
+      // Les couleurs de "base" (juste pour que ça compile)
       grayscale: {
         hue: 30, // Teinte dorée/beige
-        tint: isDark ? 6 : -4,
-        shade: isDark ? -1 : -4,
+        tint: 6, // Valeur valide (entre 0-9)
+        shade: 0, // Valeur valide (entre 0-9)
       },
       
       // La couleur d'accent (le "bleu" d'origine)
@@ -62,7 +59,7 @@ export const getThemeConfig = (theme: ColorScheme): ThemeOption => {
       },
 
       // -- Variables CSS personnalisées pour forcer le thème --
-      // Ces variables écraseront les styles par défaut
+      // C'est cette partie qui compte vraiment.
       custom: {
         // Fond général du chat
         "--widget-background-color": colors.background,
