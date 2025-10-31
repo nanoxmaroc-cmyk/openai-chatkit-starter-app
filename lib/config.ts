@@ -9,17 +9,17 @@ export const STARTER_PROMPTS: StartScreenPrompt[] = [
   {
     label: "Quels sont vos meilleurs plats ?",
     prompt: "Quels sont vos meilleurs plats ?",
-    icon: "sparkle", // Corrigé
+    icon: "sparkle",
   },
   {
     label: "Je veux faire une réservation",
     prompt: "Je veux faire une réservation",
-    icon: "calendar", // Corrigé (j'ai enlevé le "s" de "days")
+    icon: "calendar",
   },
   {
     label: "Où êtes-vous situés ?",
     prompt: "Où êtes-vous situés ?",
-    icon: "map-pin", // Celui-ci était correct
+    icon: "map-pin",
   },
 ];
 
@@ -28,7 +28,7 @@ export const PLACEHOLDER_INPUT = "Posez votre question à AZAR...";
 export const GREETING = "Bonjour, c'est AZAR ! Comment puis-je vous aider aujourd'hui au Taj Medina ?";
 
 // ==========================================================
-// DÉBUT DE VOTRE THÈME PERSONNALISÉ
+// DÉBUT DE VOTRE THÈME PERSONNALISÉ (Structure Corrigée)
 // ==========================================================
 
 export const getThemeConfig = (theme: ColorScheme): ThemeOption => {
@@ -41,48 +41,50 @@ export const getThemeConfig = (theme: ColorScheme): ThemeOption => {
   };
 
   return {
-    radius: "round", // Garde vos coins arrondis
+    // --- PROPRIÉTÉS DE PREMIER NIVEAU ---
+    radius: "round",
 
+    // --- COULEUR D'ACCENT (BOUTON ENVOYER, ETC.) ---
     color: {
-      // Couleur principale (bouton envoyer, accents)
       accent: {
         primary: colors.primary,
         level: 1,
       },
-      
-      // Fond général du chat
-      background: {
-        primary: colors.background,
-      },
+    },
+    
+    // --- FOND GÉNÉRAL DU CHAT ---
+    background: {
+      primary: colors.background,
+    },
 
-      // Texte général
-      text: {
-        primary: colors.text,
-      },
+    // --- TEXTE GÉNÉRAL ---
+    text: {
+      primary: colors.text,
+    },
 
-      // Barre de titre
-      header: {
-        background: colors.background,
-        text: colors.text,
-      },
+    // --- BARRE DE TITRE ---
+    header: {
+      background: colors.background,
+      text: colors.text,
+    },
 
-      // Champ de saisie
-      composer: {
+    // --- CHAMP DE SAISIE ---
+    composer: {
+      background: colors.botMessage,
+      text: colors.text,
+    },
+
+    // --- BULLES DE MESSAGE ---
+    message: {
+      // Bulle de l'UTILISATEUR (la bulle "or")
+      user: {
+        background: colors.primary,
+        text: colors.background, // Texte vert foncé sur bulle or
+      },
+      // Bulle du BOT (la bulle "vert foncé")
+      bot: {
         background: colors.botMessage,
         text: colors.text,
-      },
-
-      // Bulle de l'UTILISATEUR (la bulle "or")
-      message: {
-        user: {
-          background: colors.primary,
-          text: colors.background, // Texte vert foncé sur bulle or
-        },
-        // Bulle du BOT (la bulle "vert foncé")
-        bot: {
-          background: colors.botMessage,
-          text: colors.text,
-        },
       },
     },
   };
